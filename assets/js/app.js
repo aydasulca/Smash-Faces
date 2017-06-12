@@ -1,5 +1,8 @@
 'use strict';
+
 const i = 0;
+const nombreC = $('#name-coder');
+const comprobar = $('#btn-comprobar');
 
 $("select").on("change", (e) => {
   e.preventDefault();
@@ -12,8 +15,6 @@ $("select").on("change", (e) => {
     $('#photos-Mexico').toggleClass("none");
   }
 })
-const nombreC = $('#name-coder');
-const comprobar = $('#btn-comprobar');
 
 
 $(function(){
@@ -24,13 +25,17 @@ $(function(){
      img.attr("alt",peru[i].name);
      photoPeru.append(coderDiv);
      coderDiv.append(img);
+
      comprobar.on('click',(e) => {
+       e.preventDefault();
        if(nombreC.val().toLowerCase() == peru[i].name.toLowerCase()){
-         alert("muy bien");
+         alert("Muy bien, has ganado 5 puntos.");
+
        }else {
-         alert("muy mal");
+         alert("Sigue intentando.");
        }
      });
+
    return photoPeru;
  });
 
@@ -44,7 +49,7 @@ $(function(){
      img.attr("alt",mexico[i].name);
      photoMexico.append(coderDiv);
      coderDiv.append(img);
-
+/*
      comprobar.on('click',(e) => {
        if(nombreC.val().toLowerCase() == mexico[i].name.toLowerCase()){
          alert("muy bien");
@@ -52,6 +57,6 @@ $(function(){
          alert("muy mal");
        }
      });
-     
+*/
    return photoMexico;
  });
