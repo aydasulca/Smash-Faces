@@ -1,8 +1,9 @@
 'use strict';
 
-const i = 0;
+let i = 0;
 const nombreC = $('#name-coder');
 const comprobar = $('#btn-comprobar');
+let puntos = 0;
 
 $("select").on("change", (e) => {
   e.preventDefault();
@@ -30,7 +31,15 @@ $(function(){
        e.preventDefault();
        if(nombreC.val().toLowerCase() == peru[i].name.toLowerCase()){
          alert("Muy bien, has ganado 5 puntos.");
-
+         puntos = puntos + 5;
+         i++;
+         $('#score').html("<strong>"+ puntos +"</strong>");
+         setTimeout(function () {
+           img.attr("src", 'assets/fotos/peru/' + peru[i+1].image);
+           img.attr("alt",peru[i+1].name);
+           coderDiv.append(img);
+           photoPeru.append(coderDiv);
+         },3000);
        }else {
          alert("Sigue intentando.");
        }
