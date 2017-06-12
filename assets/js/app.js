@@ -12,6 +12,9 @@ $("select").on("change", (e) => {
     $('#photos-Mexico').toggleClass("none");
   }
 })
+const nombreC = $('#name-coder');
+const comprobar = $('#btn-comprobar');
+
 
 $(function(){
    const photoPeru= $('#photos-Peru');
@@ -21,6 +24,13 @@ $(function(){
      img.attr("alt",peru[i].name);
      photoPeru.append(coderDiv);
      coderDiv.append(img);
+     comprobar.on('click',(e) => {
+       if(nombreC.val().toLowerCase() == peru[i].name.toLowerCase()){
+         alert("muy bien");
+       }else {
+         alert("muy mal");
+       }
+     });
    return photoPeru;
  });
 
@@ -34,5 +44,14 @@ $(function(){
      img.attr("alt",mexico[i].name);
      photoMexico.append(coderDiv);
      coderDiv.append(img);
+
+     comprobar.on('click',(e) => {
+       if(nombreC.val().toLowerCase() == mexico[i].name.toLowerCase()){
+         alert("muy bien");
+       }else {
+         alert("muy mal");
+       }
+     });
+     
    return photoMexico;
  });
